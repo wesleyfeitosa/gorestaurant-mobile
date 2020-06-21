@@ -34,11 +34,11 @@ This project was developed with the following technologies:
 
 This is an app for restaurant customers, it is possible to view and place orders.
 
-<div style="display: flex; justify-content: space-between;">
-  <img alt="Entrar" src="assets/Entrar.png" style="width:22%" />
-  <img alt="Home" src="assets/Home.png" style="width:22%"/>
-  <img alt="Detalhes" src="assets/Detalhes.png" style="width:22%"/>
-  <img alt="Sucesso" src="assets/Sucesso.png" style="width:22%"/>
+<div style="display: grid; grid-template-columns: auto auto auto auto;">
+  <img alt="Entrar" src="assets/Entrar.png"  />
+  <img alt="Home" src="assets/Home.png" />
+  <img alt="Detalhes" src="assets/Detalhes.png" />
+  <img alt="Sucesso" src="assets/Sucesso.png" />
 </div>
 
 ## :memo: License
