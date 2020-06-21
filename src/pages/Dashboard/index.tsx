@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { Image, ScrollView } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Feather';
@@ -54,12 +54,26 @@ const Dashboard: React.FC = () => {
   const navigation = useNavigation();
 
   async function handleNavigate(id: number): Promise<void> {
-    // Navigate do ProductDetails page
+    navigation.navigate('FoodDetails', { id });
   }
 
   useEffect(() => {
     async function loadFoods(): Promise<void> {
-      // Load Foods from API
+      const { data: apiFoods } = await api.get<Food[]>(`/foods`, {
+        params: {
+          name_like: searchValue,
+          category_like: selectedCategory,
+        },
+      });
+
+      const formattedFoods = apiFoods.map(food => {
+        return {
+          ...food,
+          formattedPrice: formatValue(food.price),
+        };
+      });
+
+      setFoods(formattedFoods);
     }
 
     loadFoods();
@@ -67,14 +81,16 @@ const Dashboard: React.FC = () => {
 
   useEffect(() => {
     async function loadCategories(): Promise<void> {
-      // Load categories from API
+      const { data: apiCategories } = await api.get<Category[]>('/categories');
+
+      setCategories(apiCategories);
     }
 
     loadCategories();
   }, []);
 
   function handleSelectCategory(id: number): void {
-    // Select / deselect category
+    setSelectedCategory(state => (state === id ? undefined : id));
   }
 
   return (
@@ -91,7 +107,7 @@ const Dashboard: React.FC = () => {
       <FilterContainer>
         <SearchInput
           value={searchValue}
-          onChangeText={setSearchValue}
+          onChangeText={text => setSearchValue(text)}
           placeholder="Qual comida você procura?"
         />
       </FilterContainer>
