@@ -34,10 +34,10 @@ This project was developed with the following technologies:
 
 This is an app for restaurant customers, it is possible to view and place orders.
 
-<div style="display: grid; grid-template-columns: auto auto auto auto;">
-  <img alt="Entrar" src="assets/Entrar.png" width="23%" />
-  <img alt="Home" src="assets/Home.png" width="23%" />
-  <img alt="Detalhes" src="assets/Detalhes.png" width="23%" />
+<div>
+  <img alt="Entrar" src="assets/Entrar.png" width="23%" />&nbsp;&nbsp;
+  <img alt="Home" src="assets/Home.png" width="23%" />&nbsp;&nbsp;
+  <img alt="Detalhes" src="assets/Detalhes.png" width="23%" />&nbsp;&nbsp;
   <img alt="Sucesso" src="assets/Sucesso.png" width="23%" />
 </div>
 
